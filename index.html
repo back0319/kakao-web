@@ -1,1 +1,59 @@
-<!-- Start! -->
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>Week3 Methods & Functions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <h1>JS 실습</h1>
+
+    <section>
+      <h2>1) 템플릿 리터럴 인사말</h2>
+      <p id="greeting"></p>
+    </section>
+
+    <section>
+      <h2>2) 3초마다 바뀌는 자기소개</h2>
+      <p id="about"></p>
+    </section>
+
+    <script>
+      // === a) 템플릿 리터럴 ===
+      function getMessage(name) {
+        // 'Hello, ' + name + '...' → 템플릿 리터럴로 변경
+        return `Hello, ${name}...`;
+      }
+      const greetingEl = document.getElementById("greeting");
+      greetingEl.textContent = getMessage("Ornella");
+
+      // === b,c) 여러 함수 + setInterval로 3초마다 다른 소개 ===
+      function introName() {
+        return `안녕하세요, 저는 성욱입니다.`;
+      }
+      function introMajor() {
+        return `전공은 컴퓨터교육이며 기초웹개발론을 학습 중입니다.`;
+      }
+      function introInterest() {
+        return `관심사는 프론트엔드(React/TS)와 교육용 플랫폼입니다.`;
+      }
+      function introGoal() {
+        return `목표는 주기적으로 기능을 배포하며 역량을 쌓는 것입니다.`;
+      }
+
+      const introFns = [introName, introMajor, introInterest, introGoal];
+      const aboutEl = document.getElementById("about");
+      let idx = 0;
+
+      function renderIntro() {
+        const fn = introFns[idx % introFns.length];
+        aboutEl.textContent = fn();
+        idx++;
+      }
+
+      // 최초 1회 출력 후 3초 간격 반복
+      renderIntro();
+      setInterval(renderIntro, 3000);
+    </script>
+  </body>
+</html>
