@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Typing game</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <h1><i class="fa-solid fa-keyboard"></i> Typing Game!</h1>
+    <p>
+      Practice your typing skills with a quote from Sherlock Holmes. Click
+      <strong>Start</strong> to begin!
+    </p>
+
+    <p id="quote"></p>
+    <p id="message"></p>
+    <div class="controls">
+      <input type="text" aria-label="current word" id="typed-value" />
+      <button type="button" id="start">
+        <i class="fa-solid fa-play"></i> Start
+      </button>
+    </div>
+
+    <dialog
+      id="result-modal"
+      aria-labelledby="result-title"
+      aria-describedby="result-desc"
+    >
+      <h2 id="result-title"><i class="fa-solid fa-trophy"></i> Result</h2>
+      <p id="result-desc" class="result-body"></p>
+      <form method="dialog">
+        <button class="modal-close">
+          <i class="fa-solid fa-xmark"></i> Close
+        </button>
+      </form>
+    </dialog>
+
+    <script src="script.js"></script>
+  </body>
+</html>

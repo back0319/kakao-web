@@ -1,0 +1,138 @@
+/* 교안 원문 클래스 유지 */
+.highlight {
+  background-color: yellow;
+}
+.error {
+  background-color: lightcoral;
+  border: red;
+}
+
+/* 기본 레이아웃 보완 */
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  margin: 24px;
+  line-height: 1.5;
+}
+h1 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 8px;
+}
+#quote,
+#message {
+  margin: 10px 0;
+}
+.controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* 입력창/버튼 */
+#typed-value {
+  flex: 1;
+  padding: 8px 10px;
+  border: 1px solid #cfcfcf;
+  border-radius: 10px;
+  transition: box-shadow 0.15s ease, border-color 0.15s ease,
+    transform 0.06s ease;
+  outline: none;
+}
+#typed-value:disabled {
+  background: #eee;
+  color: #888;
+  cursor: not-allowed;
+}
+#start {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 10px;
+  background: #222;
+  color: #fff;
+  cursor: pointer;
+}
+#start:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ✅ input 이벤트용 시각효과 */
+#typed-value.typing {
+  box-shadow: 0 0 0 3px rgba(0, 128, 255, 0.12);
+  border-color: #7ab6ff;
+}
+#typed-value.ok {
+  box-shadow: 0 0 0 3px rgba(0, 200, 0, 0.12);
+  border-color: #29c06b;
+}
+#typed-value.error {
+  box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.12);
+  border-color: #ff5a5a;
+}
+
+/* 살짝 ‘톡’ 튀는 느낌 */
+@keyframes pulse-ok {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes pulse-err {
+  0% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-2px);
+  }
+  40% {
+    transform: translateX(2px);
+  }
+  60% {
+    transform: translateX(-2px);
+  }
+  80% {
+    transform: translateX(2px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+#typed-value.ok {
+  animation: pulse-ok 0.12s ease;
+}
+#typed-value.error {
+  animation: pulse-err 0.12s ease;
+}
+
+/* ✅ dialog 모달 */
+dialog {
+  border: none;
+  border-radius: 14px;
+  padding: 18px 20px;
+  max-width: 420px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.25);
+}
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.35);
+}
+.result-body {
+  margin: 12px 0 16px;
+  font-size: 1.05rem;
+}
+.modal-close {
+  padding: 8px 12px;
+  border: 1px solid #222;
+  background: #fff;
+  color: #222;
+  border-radius: 10px;
+  cursor: pointer;
+}
